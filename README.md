@@ -16,6 +16,8 @@ CURRENT_STATE CURRENT_SYMBOL > NEXT_STATE SYMBOL_TO_WRITE DIRECTION (L or R)
 
 > Every undefined transition is an automatic rejection.
 
+> The blank symbol is `_`.
+
 > The state `START` must exist, possibly `ACCEPT` and `REJECT` too.
 
 > Lines can be blank.
