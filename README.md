@@ -22,7 +22,7 @@ CURRENT_STATE CURRENT_SYMBOL > NEXT_STATE SYMBOL_TO_WRITE DIRECTION (L or R)
 
 > Lines can be blank.
 
-## Example
+## Simple example
 
 A TM that recognizes the 1\*0 language, tested for the input 1110.
 
@@ -38,3 +38,9 @@ loop _   >  REJECT end R
 
 exit _   >  ACCEPT end R
 ```
+
+## Bitwise AND
+
+`bitwise_and.txt` defines the automaton below, which takes two binary numbers separated by "and", then computes their bitwise and:
+
+![bitwise_and.jpeg](bitwise_and.jpeg)

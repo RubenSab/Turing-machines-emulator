@@ -1,4 +1,5 @@
 import sys
+import itertools
 
 
 def parse_source_file(
@@ -48,9 +49,14 @@ class Tape:
         return '| ' + '| '.join([
             f'{f"({self.tape[i]})":<5}'
             if i == self.head else f'{self.tape[i]:<5}'
-            for i in range(len(self.tape))
+            for i in range(len(
+                list(reversed(list(
+                    itertools.dropwhile(
+                        lambda x: x == '_',
+                        reversed(self.tape))
+                )))
+            ))
         ]) + '|...'
-
 
 class TM:
     def __init__(self, rules = dict[tuple[str, str], tuple[str, str, str]]):

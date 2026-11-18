@@ -1,0 +1,90 @@
+1 1 1 0 0 and 1 0 1 0 1
+
+
+START 1 > loop1 s R
+START 0 > loop0 s R
+
+
+loop1 0 > loop1 0 R
+loop1 1 > loop1 1 R
+loop1 x > loop1 x R
+loop1 and > sloop1 and R
+
+sloop1 x > sloop1 x R
+sloop1 1 > loop11 x R
+sloop1 0 > loop10 x R
+
+loop11 0 > loop11 0 R
+loop11 1 > loop11 1 R
+loop11 x > loop11 x R
+loop11 _ > write1 _ R
+
+loop10 0 > loop10 0 R
+loop10 1 > loop10 1 R
+loop10 x > loop10 x R
+loop10 _ > write0 _ R
+
+
+loop0 0 > loop0 0 R
+loop0 1 > loop0 1 R
+loop0 x > loop0 x R
+loop0 and > sloop0 and R
+
+sloop0 x > sloop0 x R
+sloop0 1 > loop01 x R
+sloop0 0 > loop00 x R
+
+loop01 0 > loop01 0 R
+loop01 1 > loop01 1 R
+loop01 x > loop01 x R
+loop01 _ > write0 _ R
+
+loop00 0 > loop00 0 R
+loop00 1 > loop00 1 R
+loop00 x > loop00 x R
+loop00 _ > write1 _ R
+
+
+write1 0 > write1 0 R
+write1 1 > write1 1 R
+write1 _ > seeks 1 L
+
+write0 0 > write0 0 R
+write0 1 > write0 1 R
+write0 _ > seeks 0 L
+
+
+seeks 0 > seeks 0 L
+seeks 1 > seeks 1 L
+seeks x > seeks x L
+seeks _ > seeks _ L
+seeks and > seeks and L
+seeks s > skipx s R
+
+skipx x > skipx x R
+skipx 1 > loop1 x R
+skipx 0 > loop0 x R
+skipx and > seek_ x R
+
+
+
+seek_ x > seek_ x R
+seek_ _ > clear x R
+
+clear x > clear x R
+clear _ > erasel _ L
+clear 1 > repls1 x L
+clear 0 > repls0 x L
+
+repls1 x > repls1 x L
+repls1 _ > repls1 _ L
+repls1 s > shifts 1 R
+
+repls0 x > repls0 x L
+repls0 _ > repls0 _ L
+repls0 s > shifts 0 R
+
+shifts x > clear s R
+
+erasel x > erasel _ L
+erasel s > ACCEPT _ L
