@@ -1,0 +1,10 @@
+1 1 1 0 2
+
+START 1  >  loop x R
+START 0  >  REJECT y R
+
+loop 1   >  loop x R
+loop 0   >  exit end R
+loop _   >  REJECT end R
+
+exit _   >  ACCEPT end R
