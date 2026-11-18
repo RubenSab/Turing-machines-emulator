@@ -50,10 +50,11 @@ class Tape:
             f'{f"({self.tape[i]})":<5}'
             if i == self.head else f'{self.tape[i]:<5}'
             for i in range(len(
+                self.tape[:self.head+1] + \
                 list(reversed(list(
                     itertools.dropwhile(
                         lambda x: x == '_',
-                        reversed(self.tape))
+                        reversed(self.tape[self.head+1:]))
                 )))
             ))
         ]) + '|...'
